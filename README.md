@@ -1,28 +1,66 @@
-# Work with unicode chars
+# Green Threads
 
-Implementation of different use cases that needs to work with unicode chars
+Green threads demo based on generators
 
-## isNumber advanced method
+## forEach
 
-Check whether passed string is number or not.
-Can support different alphabets, e.g. Latin and Roman alphabets(Easy to extend).
-Numbers from different alphabets treated as not a number.
+forEach method allows to iterate through huge Iterable structures without freezing input/output.
+Different timeouts can be used based on priority parameter:
+
+- low
+- high
+- critical
+  Callback function can accept value, index and stop function that allowed to stop iteration process.
 
 ```js
-import isNumber from './src';
+import forEach from './src';
 
 console.log(isNumber('1234567890')); // true
 console.log(isNumber('ⅯⅩⅧ')); // true
 console.log(isNumber('ⅯⅩⅧ12')); // false
 ```
 
-## strIter mimic native string iterator
-
-Custom string iterator that mimics the native string iterator,
-It should properly works with surrogate pairs in the UTF-16 encoding.
-
 ```js
-import getStrIter from './src';
+import forEach from './src';
 
-console.log([...getStrIter('amd😀3452🧓1v🇦🇩😀')]); // ['a', 'm', 'd', '😀', '3', '4', '5','2', '🧓', '1', 'v', '🇦', '🇩', '😀']
+let total = 0;
+const length = 10000000;
+
+forEach(new Array(length), 'low', () => {
+  total++;
+}).then(() => console.log('low1:', 'finished'));
+
+forEach(new Array(length), 'low', () => {
+  total++;
+}).then(() => console.log('low2:', 'finished'));
+
+forEach(new Array(length), 'low', (value, index, stop) => {
+  total++;
+}).then(() => console.log('low3:', 'finished'));
+
+forEach(new Array(length), 'low', (value, index, stop) => {
+  total++;
+}).then(() => console.log('low4:', 'finished'));
+
+forEach(new Array(length), 'critical', (value, index, stop) => {
+  total++;
+}).then(() => console.log('critical1:', 'finished'));
+
+forEach(new Array(length), 'low', (value, index, stop) => {
+  total++;
+}).then(() => console.log('low6:', 'finished'));
+
+forEach(new Array(length), 'high', (value, index, stop) => {
+  total++;
+}).then(() => console.log('high1:', 'finished'));
+
+forEach(new Array(length), 'low', (value, index, stop) => {
+  total++;
+}).then(() => console.log('low8:', 'finished'));
+
+forEach(new Array(length), 'critical', (value, index, stop) => {
+  total++;
+}).then(() => console.log('ctitical2:', 'finished'));
+
+console.log('total:', total);
 ```

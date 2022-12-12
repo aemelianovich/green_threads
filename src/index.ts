@@ -1,2 +1,1 @@
-export { default as isNumber } from './is_number/is_number';
-export { default as getStrIter } from './str_iter/get_str_iter';
+export { default as forEach } from './green_threads/index.js';

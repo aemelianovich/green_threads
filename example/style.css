@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.box {
+  display: inline-block;
+  height: 100px;
+  line-height: 100px;
+  width: 100px;
+  margin: 30px 30px;
+  background-color: greenyellow;
+  text-align: center;
+  te
+}
+
+.box:hover {
+  background-color: lightcoral;
+}
+
+#threads {
+  margin: 30px 30px;
+  list-style: none;
+}
+
+#threads li {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+#threads .critical {
+  background-color: #da4444;
+}
+
+#threads .high {
+  background-color: #6e99d1;
+}
+
+#threads .low {
+  background-color: #7de0b2;
+}
+
+#threads .finished {
+  background-color: #90a39a;
+}
