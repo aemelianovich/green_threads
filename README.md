@@ -14,11 +14,11 @@ Different timeouts can be used based on priority parameter:
 Callback function can accept value, index and stop function that allowed to stop iteration process.
 
 ```js
-import forEach from './src';
-
-console.log(isNumber('1234567890')); // true
-console.log(isNumber('ⅯⅩⅧ')); // true
-console.log(isNumber('ⅯⅩⅧ12')); // false
+async function forEach<T>(
+  iterable: Iterable<T>,
+  priority: Priority,
+  cb: (value: T, index: number, stop: () => void) => void,
+): Promise<undefined>
 ```
 
 ```js
