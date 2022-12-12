@@ -10,7 +10,8 @@ Different timeouts can be used based on priority parameter:
 - low
 - high
 - critical
-  Callback function can accept value, index and stop function that allowed to stop iteration process.
+
+Callback function can accept value, index and stop function that allowed to stop iteration process.
 
 ```js
 import forEach from './src';
