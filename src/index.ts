@@ -1,1 +1,5 @@
-export { default as forEach } from './green_threads/index.js';
+import IterableManager from './green_threads/index.js';
+
+const forEach = IterableManager.forEach.bind(IterableManager);
+
+export { forEach };

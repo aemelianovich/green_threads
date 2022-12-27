@@ -1,23 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Priority = 'low' | 'high' | 'critical';
-type priorityMap = {
+
+type PriorityMap = {
   [key in Priority]: {
     maxExecTime: number;
     minSleepTime: number;
   };
 };
 
-const priorityMap: priorityMap = {
+const priorityMap: PriorityMap = {
   low: {
-    maxExecTime: 100,
+    maxExecTime: 50,
     minSleepTime: 3000,
   },
   high: {
-    maxExecTime: 150,
+    maxExecTime: 100,
     minSleepTime: 2000,
   },
   critical: {
-    maxExecTime: 200,
+    maxExecTime: 150,
     minSleepTime: 1000,
   },
 };
