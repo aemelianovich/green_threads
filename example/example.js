@@ -19,6 +19,13 @@ const item5 = createItem(5, list);
 const item6 = createItem(6, list);
 const item7 = createItem(7, list);
 const item8 = createItem(8, list);
+const item9 = createItem(9, list);
+const item10 = createItem(10, list);
+const item11 = createItem(11, list);
+const item12 = createItem(12, list);
+const item13 = createItem(13, list);
+const item14 = createItem(14, list);
+const item15 = createItem(15, list);
 
 const length = 50000;
 const itemRegExp = /^([\d]+?)(:.+)( #.+?- )(.+)$/g;
@@ -42,13 +49,20 @@ function run(item, priority) {
   });
 }
 
-run(item1, 'critical');
+setTimeout(() => run(item1, 'critical'), 4000);
 run(item2, 'low');
-run(item4, 'high');
-run(item5, 'high');
-run(item6, 'low');
-run(item7, 'low');
-run(item8, 'critical');
+setTimeout(run(item4, 'high'));
+setTimeout(run(item5, 'high'));
+setTimeout(run(item6, 'low'));
+setTimeout(run(item7, 'low'));
+setTimeout(run(item8, 'critical'));
+setTimeout(run(item9, 'critical'));
+run(item10, 'low');
+setTimeout(run(item11, 'low'));
+setTimeout(run(item12, 'high'));
+run(item13, 'high');
+setTimeout(run(item14, 'critical'));
+run(item15, 'low');
 
 forEach(new Array(length), 'low', (value, index, stop) => {
   item3.classList.add(`low`);
@@ -58,7 +72,7 @@ forEach(new Array(length), 'low', (value, index, stop) => {
   });
   item3.innerText = newText;
 
-  if (index > 5000) {
+  if (index >= 5000) {
     stop();
   }
 }).then(() => {
