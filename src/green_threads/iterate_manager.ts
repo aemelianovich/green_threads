@@ -3,7 +3,7 @@ import { Priority, priorityMap } from './priorities.js';
 
 type Resolve<T> = (value?: T) => void;
 
-class IterableManager {
+class IterateManager {
   static maxExecTime = 500;
   static #activeQueue: { [key in Priority]: number } = {
     low: 0,
@@ -102,4 +102,4 @@ class IterableManager {
   }
 }
 
-export default IterableManager;
+export default IterateManager;

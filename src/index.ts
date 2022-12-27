@@ -1,5 +1,5 @@
-import IterableManager from './green_threads/index.js';
+import IterateManager from './green_threads/index.js';
 
-const forEach = IterableManager.forEach.bind(IterableManager);
+const forEach = IterateManager.forEach.bind(IterateManager);
 
 export { forEach };

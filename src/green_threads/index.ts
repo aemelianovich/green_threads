@@ -1,3 +1,3 @@
-import IterableManager from './iterable_manager.js';
+import IterateManager from './iterate_manager.js';
 
-export default IterableManager;
+export default IterateManager;
